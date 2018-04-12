@@ -5,8 +5,6 @@ modules:
   - name: db
     type: hdb
     path: db
-    requires:
-      - name: hdi_db
   - name: js
     type: nodejs
     path: js
@@ -17,17 +15,15 @@ modules:
     requires:
       - name: hdi_db
       - name: db
-
   - name: web
     type: html5
     path: web
     requires:
-     - name: js_api
-       group: destinations
-       properties:
+      - name: js_api
+        group: destinations
+        properties:
           name: js_be
-          url: ~{url}
-
+          url: '~{url}'
 resources:
   - name: hdi_db
     parameters:
